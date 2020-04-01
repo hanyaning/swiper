@@ -28,8 +28,8 @@ var carousel = (function () {
     box.html(content);
     //记录圆点
     var index = 0;
-    //是否自动播放
-    var isanimate = true;
+    //是否移动
+    var isanimate = false;
     //定时器
     var timer;
     //获取节点
@@ -42,6 +42,10 @@ var carousel = (function () {
     function swiper() {
         //下一张
         function nextPage() {
+            if(isanimate){
+                return;
+            }
+            isanimate = true;
             index++;
             if (index > 5) {
                 slider.css('left', -1200);
@@ -52,6 +56,10 @@ var carousel = (function () {
         }
         //上一张
         function lastPage() {
+            if(isanimate){
+                return;
+            }
+            isanimate = true;
             index--;
             if (index < 0) {
                 slider.css('left', -7200);
