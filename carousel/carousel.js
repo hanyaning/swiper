@@ -71,7 +71,9 @@ var carousel = (function () {
         //切换动画效果
         function slide(index) {
             index++;
-            slider.stop().animate({ left: -index * 1200 }, 500)
+            slider.stop().animate({ left: -index * 1200 }, 500,function(){
+                isanimate = false;
+            })
         }
         //切换圆点
         function changeCircle() {
